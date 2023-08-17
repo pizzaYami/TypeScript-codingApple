@@ -1,19 +1,18 @@
-type Profile = {
-  name: string;
-  age: number;
-  plusOne: (number) => number;
-  changeName: () => void;
+type filter = (a: string) => number;
+
+let cutZero: filter = function (a) {
+  if (a.slice(0, 1) === "0") {
+    a = a.slice(1);
+    return a;
+  }
 };
 
-let 회원정보: Profile = {
-  name: "kim",
-  age: 30,
-  plusOne(x) {
-    return x + 1;
-  },
-  changeName() {
-    console.log("안녕");
-  },
+let removeDash: filter = function (a) {
+  for (let i = 0; i < a.length; i++) {
+    a = a.replace("-", "");
+  }
+  return a;
 };
-console.log(회원정보.plusOne(1));
-console.log(회원정보.changeName());
+console.log(cutZero("0123"));
+
+console.log(removeDash("1-2-3-4"));
