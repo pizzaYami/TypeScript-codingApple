@@ -10,5 +10,9 @@ var removeDash = function (a) {
     }
     return a;
 };
-console.log(cutZero("0123"));
-console.log(removeDash("1-2-3-4"));
+var myFc = function (a, func1, func2) {
+    var result = func1(a);
+    var result2 = func2(result);
+    console.log(result2);
+};
+console.log(myFc("010-1111-2222", cutZero, removeDash));
