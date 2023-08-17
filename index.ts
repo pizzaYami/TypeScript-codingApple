@@ -1,9 +1,10 @@
-function hello(name?: string): string {
-  if (name) {
-    return `안녕하세요 ${name}입니다.`;
-  } else {
-    return "이름이 없습니다.";
+function sayHi(x: string | number): void {
+  if (typeof x === "string") {
+    console.log(x.length);
+  } else if (typeof x === "number") {
+    console.log(String(x).length);
   }
 }
 
-hello();
+sayHi("123");
+sayHi(123);
