@@ -1,12 +1,12 @@
-function cleaning(arr: (string | number)[]): number[] {
-  let result: number[] = [];
-  arr.map((a) => {
-    if (typeof a === "string") {
-      result.push(Number(a));
-    } else {
-      result.push(a);
-    }
-  });
-  return result;
+function Subject(item: { subject: string | string[] }) {
+  if (typeof item.subject === "string") {
+    return item.subject;
+  } else if (typeof item.subject === "object") {
+    return String(item.subject.slice(-1));
+  } else {
+    return undefined;
+  }
 }
-console.log(cleaning(["122", 123, "3"]));
+console.log(Subject({ subject: "math" }));
+console.log(Subject({ subject: ["science", "art", "korean"] }));
+console.log(Subject({ hello: "hi" }));
