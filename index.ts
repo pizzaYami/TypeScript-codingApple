@@ -1,39 +1,23 @@
-let 상품: Item = {
-  brand: "Samsung",
-  serialNumber: 1360,
-  model: ["TV", "phone"],
-};
-
-interface Item {
-  brand: string;
-  serialNumber: number;
-  model: string[];
+function MathFloor(...a: number[]) {
+  return a.sort().slice(-1);
 }
 
-let 장바구니: Cart[] = [
-  { product: "청소기", price: 7000 },
-  { product: "삼다수", price: 800 },
-];
-
-interface Cart {
-  product: string;
-  price: number;
+function 함수1({
+  user,
+  comment,
+  admin,
+}: {
+  user: string;
+  comment: number[];
+  admin: boolean;
+}): void {
+  console.log(user, comment, admin);
 }
 
-interface NewCart extends Cart {
-  card: boolean;
+함수1({ user: "kim", comment: [3, 5, 4], admin: false });
+
+function 함수2([a, b, c]: [a: number, b: string, c: boolean]): void {
+  console.log(a, b, c);
 }
 
-interface MathObj {
-  plus: (a: number, b: number) => number;
-  minus: (a: number, b: number) => number;
-}
-
-let 오브젝트: MathObj = {
-  plus(a, b) {
-    return a + b;
-  },
-  minus(a, b) {
-    return a - b;
-  },
-};
+함수2([40, "wine", false]);
