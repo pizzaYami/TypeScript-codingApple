@@ -1,25 +1,39 @@
-type Filter = (string) => number;
-type 함수타입1 = (a: string) => string;
-type 함수타입2 = (a: string) => number;
-
-let cutZero = function (a) {
-  if (a.slice(0, 1) === "0") {
-    a = a.slice(1);
-    return a;
-  }
+let 상품: Item = {
+  brand: "Samsung",
+  serialNumber: 1360,
+  model: ["TV", "phone"],
 };
 
-let removeDash = function (a) {
-  for (let i = 0; i < a.length; i++) {
-    a = a.replace("-", "");
-  }
-  return a;
-};
+interface Item {
+  brand: string;
+  serialNumber: number;
+  model: string[];
+}
 
-let myFc = function (a: string, func1: 함수타입1, func2: 함수타입2) {
-  let result = func1(a);
-  let result2 = func2(result);
-  console.log(result2);
-};
+let 장바구니: Cart[] = [
+  { product: "청소기", price: 7000 },
+  { product: "삼다수", price: 800 },
+];
 
-console.log(myFc("010-1111-2222", cutZero, removeDash));
+interface Cart {
+  product: string;
+  price: number;
+}
+
+interface NewCart extends Cart {
+  card: boolean;
+}
+
+interface MathObj {
+  plus: (a: number, b: number) => number;
+  minus: (a: number, b: number) => number;
+}
+
+let 오브젝트: MathObj = {
+  plus(a, b) {
+    return a + b;
+  },
+  minus(a, b) {
+    return a - b;
+  },
+};

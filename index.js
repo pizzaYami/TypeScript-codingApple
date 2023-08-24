@@ -1,18 +1,17 @@
-var cutZero = function (a) {
-    if (a.slice(0, 1) === "0") {
-        a = a.slice(1);
-        return a;
-    }
+var 상품 = {
+    brand: "Samsung",
+    serialNumber: 1360,
+    model: ["TV", "phone"],
 };
-var removeDash = function (a) {
-    for (var i = 0; i < a.length; i++) {
-        a = a.replace("-", "");
-    }
-    return a;
+var 장바구니 = [
+    { product: "청소기", price: 7000 },
+    { product: "삼다수", price: 800 },
+];
+var 오브젝트 = {
+    plus: function (a, b) {
+        return a + b;
+    },
+    minus: function (a, b) {
+        return a - b;
+    },
 };
-var myFc = function (a, func1, func2) {
-    var result = func1(a);
-    var result2 = func2(result);
-    console.log(result2);
-};
-console.log(myFc("010-1111-2222", cutZero, removeDash));
